@@ -347,5 +347,5 @@ Leader变化会导致各节点日志不一致，则需要做如下处理：
 * 如果存在一个满足`N > commitIndex`的 N，并且大多数的`matchIndex[i] ≥ N`成立，并且`log[N].term == currentTerm`成立，那么令 commitIndex 等于这个 N 
 
 
-更多流程图参考
-中文[翻译地址](https://github.com/99246255/raft/blob/master/docs/raft共识算法.docx)
+## 更多流程图参考
+[raft共识算法.docx](https://github.com/99246255/raft/blob/master/docs/raft共识算法.docx)
