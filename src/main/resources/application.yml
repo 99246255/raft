@@ -1,0 +1,33 @@
+server: 
+  port: 7101  #http对外端口
+
+#kvdb:
+#  type: 1 #leveldb
+#  path: "/home/raft/leveldb-java1"
+kvdb:  #状态机存储目录
+  type: 2 #rocksdb
+  path: "/home/raft/rocksdb-java1"
+
+grpc:
+  enable: true #使用grpc
+  server:
+    address: 127.0.0.1 #当前节点ip
+    port: 1111  #当前节点grpc端口
+peers:
+  host: #所有节点ip
+  - 127.0.0.1
+  - 127.0.0.1
+  - 127.0.0.1
+  port:
+  - 1111
+  - 1112
+  - 1113
+  enableKeepAlive: true
+  keepAliveWithoutCalls: true
+raft:
+  dataDir: test1 #日志存储路径
+  heartbeatPeriodMilliseconds: 500 #日志复制间隔
+  electionTimeoutMilliseconds: 5000 #选举超时时间
+spring:
+  application:
+    name: raft

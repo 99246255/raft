@@ -1,0 +1,31 @@
+server: 
+  port: 7101
+
+#kvdb:
+#  type: 1
+#  path: "/home/raft/leveldb-java1"
+kvdb:
+  type: 2
+  path: "/home/raft/rocksdb-java1"
+
+grpc:
+  enable: true
+  server:
+    address: 127.0.0.1
+    port: 1111
+peer:
+  groups:
+    RAFT:
+      - 127.0.0.1:1111:0:0
+      - 127.0.0.1:1112:0:0
+      - 127.0.0.1:1113:0:0
+peers:
+  enableKeepAlive: true
+  keepAliveWithoutCalls: true
+raft:
+  dataDir: /home/raft/leveldbSTORE-java1
+  heartbeatPeriodMilliseconds: 100
+  electionTimeoutMilliseconds: 2000
+spring:
+  application:
+    name: raft
